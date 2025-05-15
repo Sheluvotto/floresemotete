@@ -37,6 +37,7 @@
   border-radius: 50%;
   transform: translateX(-50%);
   z-index: 2;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
 }
 
 .flower-petals {
@@ -58,6 +59,7 @@
 .sunflower-petals {
   width: 50px;
   height: 50px;
+  background-color: #ffcf3a;
   clip-path: polygon(
     50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
     50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
@@ -70,10 +72,11 @@
   left: 50%;
   width: 25px;
   height: 35px;
-  background-color: #ff6688;
+  background-color: #ffcf3a;
   border-radius: 50% 50% 0 0;
   transform: translateX(-50%);
   z-index: 2;
+  box-shadow: 0 0 10px rgba(255, 207, 58, 0.3);
 }
 
 .flower-rose {
@@ -82,13 +85,66 @@
   left: 50%;
   width: 30px;
   height: 30px;
-  background-color: #ff3366;
+  background-color: #ffcf3a;
   border-radius: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  box-shadow: 0 0 0 5px rgba(255, 51, 102, 0.7), 
-              0 0 0 10px rgba(255, 51, 102, 0.5),
-              0 0 0 15px rgba(255, 51, 102, 0.3);
+  box-shadow: 0 0 0 5px rgba(255, 207, 58, 0.7), 
+              0 0 0 10px rgba(255, 207, 58, 0.5),
+              0 0 0 15px rgba(255, 207, 58, 0.3);
+}
+
+.flower-daisy {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.daisy-center {
+  width: 20px;
+  height: 20px;
+  background-color: #ffcf3a;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.daisy-petals {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -10px;
+  left: -10px;
+  z-index: 1;
+}
+
+.daisy-petal {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.flower-marigold {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 35px;
+  height: 35px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.marigold-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ffcf3a;
+  animation: pulseGlow 2s ease-in-out infinite;
 }
 
 /* Animation and Effects */
@@ -122,4 +178,41 @@
   0%, 100% { transform: translateX(0); }
   10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
   20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 207, 58, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 207, 58, 0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .flower-container {
+    width: 30px;
+    height: 60px;
+  }
+  
+  .flower-stem {
+    height: 40px;
+  }
+  
+  .flower-center,
+  .daisy-center {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .flower-petals,
+  .daisy-petals {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .sunflower-petals {
+    width: 40px;
+    height: 40px;
+  }
 }
