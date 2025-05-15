@@ -1,0 +1,70 @@
+.control-panel {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  margin: var(--space-4) 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+  flex-wrap: wrap;
+}
+
+.control-panel.night {
+  background-color: rgba(30, 38, 66, 0.8);
+  color: var(--neutral-100);
+}
+
+.control-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 70px;
+  color: inherit;
+}
+
+.control-panel.night .control-button {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.control-button:hover {
+  background-color: rgba(var(--season-accent), 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.control-button.active {
+  background-color: rgba(var(--accent), 0.3);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.control-button span {
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.season-emoji {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .control-panel {
+    padding: var(--space-2);
+    gap: var(--space-2);
+  }
+  
+  .control-button {
+    min-width: 60px;
+    padding: var(--space-2);
+  }
+}

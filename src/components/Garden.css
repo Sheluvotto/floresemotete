@@ -1,0 +1,149 @@
+.garden {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  transition: all 1.5s ease;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 19V5'/%3E%3Cpath d='M5 12H19'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+.garden-ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, #7c5d2e);
+  z-index: 1;
+}
+
+/* Time of Day Modifications */
+.garden.day {
+  background-color: #b9e6ff;
+}
+
+.garden.night {
+  background-color: #1e2642;
+}
+
+/* Season Modifications */
+.garden.spring .garden-ground {
+  background: linear-gradient(to bottom, transparent, #527b4a);
+}
+
+.garden.summer .garden-ground {
+  background: linear-gradient(to bottom, transparent, #7c652e);
+}
+
+.garden.autumn .garden-ground {
+  background: linear-gradient(to bottom, transparent, #8b5a2b);
+}
+
+.garden.winter .garden-ground {
+  background: linear-gradient(to bottom, transparent, #d0d0e0);
+}
+
+/* Weather Effects */
+.garden.rainy::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  animation: rain 0.8s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.garden.cloudy::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3),
+    rgba(200, 200, 200, 0.1)
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Secret garden element */
+.secret-garden-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-accent);
+  font-size: 2rem;
+  color: gold;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--space-4);
+  animation: scaleUp 0.5s ease-in-out;
+}
+
+/* Fireflies */
+.firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #fffa8c;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #fffa8c;
+  opacity: 0;
+  animation: firefly 5s infinite;
+  z-index: 5;
+}
+
+@keyframes firefly {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  25%, 75% {
+    opacity: 0.3;
+  }
+}
+
+/* Secret Garden Animation */
+.garden.secret-found {
+  box-shadow: 0 0 50px gold;
+}
+
+@keyframes rain {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .garden {
+    height: 60vh;
+  }
+  
+  .secret-garden-element {
+    font-size: 1.5rem;
+    padding: var(--space-3) var(--space-6);
+  }
+}

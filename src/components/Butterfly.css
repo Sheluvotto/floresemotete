@@ -1,0 +1,90 @@
+.butterfly {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: left 2s ease, top 2s ease;
+  z-index: 50;
+}
+
+.butterfly.caught {
+  animation: caught 0.5s ease-in-out;
+  opacity: 0.5;
+}
+
+.butterfly-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 16px;
+  background-color: #333;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.wing {
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background-color: #ff55aa;
+  border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+  top: 5px;
+}
+
+.wing-left {
+  left: 2px;
+  transform-origin: right center;
+}
+
+.wing-right {
+  right: 2px;
+  transform-origin: left center;
+}
+
+.flying-right .wing-left {
+  animation: flapLeft 0.2s ease-in-out infinite alternate;
+}
+
+.flying-right .wing-right {
+  animation: flapRight 0.2s ease-in-out infinite alternate;
+}
+
+.flying-left .wing-left {
+  animation: flapLeft 0.2s ease-in-out infinite alternate-reverse;
+}
+
+.flying-left .wing-right {
+  animation: flapRight 0.2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes flapLeft {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(70deg);
+  }
+}
+
+@keyframes flapRight {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-70deg);
+  }
+}
+
+@keyframes caught {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

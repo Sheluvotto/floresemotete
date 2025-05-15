@@ -1,0 +1,134 @@
+.game-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 500px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: zoomIn 0.3s ease-out;
+  z-index: 1000;
+}
+
+.game-header {
+  padding: var(--space-4);
+  background-color: var(--accent);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-header h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.game-icon {
+  color: white;
+}
+
+.game-content {
+  flex: 1;
+  padding: var(--space-4);
+  overflow-y: auto;
+  position: relative;
+}
+
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  height: 100%;
+}
+
+.game-card {
+  background-color: var(--neutral-100);
+  border-radius: 12px;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 150px;
+}
+
+.game-card:nth-child(1) {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: white;
+}
+
+.game-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  color: white;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.game-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-2);
+  font-weight: bold;
+}
+
+.game-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.back-button {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  background-color: var(--neutral-200);
+  border: none;
+  border-radius: 20px;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.back-button:hover {
+  background-color: var(--neutral-300);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-center {
+    width: 95%;
+    height: 80vh;
+  }
+  
+  .game-header h2 {
+    font-size: 1.2rem;
+  }
+}

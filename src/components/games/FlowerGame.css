@@ -1,0 +1,120 @@
+.flower-game {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin-top: var(--space-6);
+  background: linear-gradient(to bottom, #e0f7fa, #b0e5ec);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 5;
+}
+
+.game-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+}
+
+.game-value {
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+.game-field {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent 70%, #4a632d);
+}
+
+.game-flower {
+  position: absolute;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  animation: growFlower 0.5s ease-out;
+  user-select: none;
+}
+
+.game-flower.clicked {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-flower:hover {
+  transform: scale(1.2);
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.game-message {
+  background-color: white;
+  padding: var(--space-6);
+  border-radius: 12px;
+  text-align: center;
+  max-width: 80%;
+}
+
+.game-message h3 {
+  margin-bottom: var(--space-3);
+  color: var(--primary-dark);
+  font-size: 1.4rem;
+}
+
+.game-instructions {
+  margin-bottom: var(--space-4);
+  font-size: 0.9rem;
+  color: var(--neutral-600);
+}
+
+.game-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: var(--space-2) var(--space-6);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.game-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes growFlower {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

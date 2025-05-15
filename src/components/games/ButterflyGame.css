@@ -1,0 +1,67 @@
+.butterfly-game {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin-top: var(--space-6);
+  background: linear-gradient(to bottom, #c2e0f9, #a1c4e8);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.butterfly-field {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: url('https://images.pexels.com/photos/158063/bellingrath-gardens-alabama-landscape-scenic-158063.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+}
+
+.game-butterfly {
+  position: absolute;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: left 0.2s ease, top 0.2s ease;
+  animation: butterflyFlutter 0.5s infinite alternate;
+  user-select: none;
+}
+
+.butterfly-emoji {
+  display: block;
+  transform-origin: center;
+  transition: transform 0.1s ease;
+}
+
+.game-butterfly:hover .butterfly-emoji {
+  transform: scale(1.2);
+}
+
+.game-butterfly.caught {
+  animation: butterflyCaught 0.5s forwards;
+  pointer-events: none;
+}
+
+@keyframes butterflyFlutter {
+  0% {
+    transform: rotate(-5deg) translateY(0px);
+  }
+  100% {
+    transform: rotate(5deg) translateY(-5px);
+  }
+}
+
+@keyframes butterflyCaught {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
